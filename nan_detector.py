@@ -94,7 +94,7 @@ class GradEvent:
     threshold: float
 
     def __str__(self):
-        norm_str = f"{self.grad_norm:.4f}" if math.isfinite(self.grad_norm) else "inf"
+        norm_str = f"{self.grad_norm:.2e}" if math.isfinite(self.grad_norm) else "inf"
         return (
             f"[GradNorm WARNING] batch={self.batch_idx}  "
             f"layer={self.layer_name}.{self.param_name}  "
