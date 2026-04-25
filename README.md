@@ -1,5 +1,5 @@
 # pytorch-nan-detector
-PyTorch NaNs are silent killers. This hook catches them at the exact layer and batch — with ~3 ms overhead vs ~7 ms for set_detect_anomaly.
+PyTorch NaNs are silent killers. This hook catches them at the exact layer and batch — with ~7 ms overhead vs ~7–8 ms ms for set_detect_anomaly.
 
 
 # pytorch-nan-detector
@@ -7,7 +7,7 @@ PyTorch NaNs are silent killers. This hook catches them at the exact layer and b
 A lightweight forward-hook NaN/Inf detector for PyTorch — catches the exact layer and batch where NaNs first appear, with ~3 ms overhead.
 
 > Companion code for the Towards Data Science article:  
-> **[PyTorch NaNs Are Silent Killers — I Built a 2 ms Hook That Pinpoints Them to the Exact Layer and Batch](https://towardsdatascience.com/)**
+> **[PyTorch NaNs Are Silent Killers — I Built a 3 ms Hook That Pinpoints Them to the Exact Layer and Batch](https://towardsdatascience.com/)**
 
 ---
 
@@ -23,9 +23,9 @@ Training loop → Forward hooks → NaNEvent → layer + batch + stats
 
 | Method | Mean (ms) | Overhead |
 |---|---|---|
-| No detection | 0.65 | baseline |
-| **NaNDetector** | **2.84** | **4.4×** |
-| `set_detect_anomaly` | 7.29 | 11.2× |
+| No detection | ~0.60 ms | baseline |
+| **NaNDetector** | **~3–4 ms** | **~5–6×** |
+| `set_detect_anomaly` | ~7–8 ms | ~12–13× |
 
 *CPU · 4-layer MLP · batch size 64 · 30 forward passes.  
 On GPU with large models, `set_detect_anomaly` reaches 50–100×.*
@@ -39,8 +39,8 @@ On GPU with large models, `set_detect_anomaly` reaches 50–100×.*
 | Operation | Latency |
 |---|---|
 | Hook check per layer | ~0.02 ms |
-| Full forward pass overhead | ~0.11 ms |
-| `set_detect_anomaly` equivalent | ~7.3 ms |
+| Full forward pass overhead | ~0.10 ms |
+| `set_detect_anomaly` equivalent | ~7–8 ms |
 
 ---
 
