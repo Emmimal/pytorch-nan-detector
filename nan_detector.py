@@ -4,7 +4,7 @@ nan_detector.py
 Production-ready forward-hook NaN/Inf detector for PyTorch.
 
 Catches the exact layer and batch where NaNs first appear.
-Benchmarked at ~2 ms overhead vs 7-25x slowdown with set_detect_anomaly()
+# Benchmarked at ~3–4 ms overhead vs 7-25x slowdown with set_detect_anomaly()
 on CPU; overhead gap widens significantly on GPU (50-100x reported).
 
 Features
