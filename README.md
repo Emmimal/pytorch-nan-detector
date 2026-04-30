@@ -6,7 +6,7 @@ PyTorch NaNs are silent killers. This hook catches them at the exact layer and b
 A lightweight forward-hook NaN/Inf detector for PyTorch — catches the exact layer and batch where NaNs first appear, with ~3 ms overhead.
 
 > Companion code for the Towards Data Science article:  
-> **[PyTorch NaNs Are Silent Killers — I Built a 3 ms Hook That Pinpoints Them to the Exact Layer and Batch](https://towardsdatascience.com/)**
+> **[PyTorch NaNs Are Silent Killers — I Built a 3 ms Hook That Pinpoints Them to the Exact Layer and Batch](https://towardsdatascience.com/pytorch-nans-are-silent-killers-i-built-a-3ms-hook-to-catch-them-at-the-exact-layer/)**
 
 ---
 
